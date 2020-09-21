@@ -1,4 +1,4 @@
-# Trigone Tech
+# T. Tech
 
 ## Brief Description
 
