@@ -12,7 +12,7 @@ This is a very tiny implementation of a RestAPI using Symfony 5. The goal was to
 
 ## Endpoints
 
-PS: Before diving into the endpoints, we should know that this API is build for two kind of users:   
+Before diving into the endpoints definition, we should know that this API is build for two kind of users:   
 &nbsp;&nbsp;&nbsp;* Human Ressources (HR) : They (1) have access to all leave requests, (2) can accept or refuse a leave request   
 &nbsp;&nbsp;&nbsp;* Employees : They can (1) ask for a vacation by specifying the period, (2) cancel a specific vacation (3) consult their list of incoming vactions.   
 
@@ -37,6 +37,7 @@ PS: Before diving into the endpoints, we should know that this API is build for 
 |-------------------------------------|--------------------------------------------------|------------------------------------------|
 | GET / |  | Default debug homepage|
 | GET /api/home   |  | Empty homepage (**TODO**) |
+| GET /api/hr   |  | HR homepage. Returns a JsonResponse filled with all the employees' leave requests |
 | GET /api/logout |  | Logout the user|
 | GET /api/login |  | Render the login form|
 | GET /api/register |  | Render the registration form|
