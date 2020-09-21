@@ -16,7 +16,7 @@ PS: Before diving into the endpoints, we should know that this API is build for 
 
 | Definition                          |                     Parameters                     |                  Description           |    Access Rights   |
 |-------------------------------------|--------------------------------------------------|------------------------------------------|--------------------|
-| GET /api/employee/{id} | id : The employee's ID you want information about |Returns a JsonResponse filled with all an employee leave requests and validated vacations | HR / Employee |
+| GET /api/employee/{id} | id : The employee's ID you want information about |Returns a JsonResponse filled with all <br> an employee leave requests and validated vacations | HR / Employee |
 | POST /api/employee/{id}/holiday | id : The employee's ID in the database | Register a new leave request| Employee |
 | PUT /api/employee/{eid}/holiday/{id} | eid : employee's ID <br> id : vaction's ID | Accept or refuse a leave request| HR |
 | DELETE /api/employee/{eid}/holiday/{id} | eid : employee's ID <br> id : vaction's ID |Delete a leave request| Employee |
@@ -30,7 +30,7 @@ PS: Before diving into the endpoints, we should know that this API is build for 
 | Definition                          |                     Parameters                   |                  Description             |
 |-------------------------------------|--------------------------------------------------|------------------------------------------|
 | GET / |  | Default debug homepage|
-| GET /api/home   |  | Empty homepage **TODO** |
+| GET /api/home   |  | Empty homepage (**TODO**) |
 | GET /api/logout |  | Logout the user|
 | GET /api/login |  | Render the login form|
 | GET /api/register |  | Render the registration form|
