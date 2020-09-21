@@ -16,7 +16,7 @@ class HomeController extends AbstractController{
 	 */
 	public function home(){
 
-		$user = $this->getUser();
+		// TODO
 
 		$response = new JsonResponse($user->getRoles());
 		$response->setEncodingOptions($response->getEncodingOptions() | JSON_PRETTY_PRINT);
