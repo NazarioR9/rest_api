@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="well">
+                <form action="{{ path('register') }}" method="post">
+                    <fieldset>
+                        <legend><i class="fa fa-lock" aria-hidden="true"></i> Registration </legend>
+                        <div class="form-group">
+                            <label for="name">First Name</label>
+                            <input type="text" id="fname" name="fname" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Last Name</label>
+                            <input type="text" id="lname" name="lname" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">Email</label>
+                            <input type="text" id="email" name="email" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="title"> Title </label>
+                            <select name="title" id="title" >
+                                <option>Employee</option>
+                                <option>HR</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

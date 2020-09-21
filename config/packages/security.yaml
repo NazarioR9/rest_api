@@ -1,15 +1,32 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+    
+    role_hierarchy:
+        ROLE_HR: ROLE_USER
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        users_in_memory: { memory: null }
+        database_users:
+            entity:
+                class: 'App\Entity\User'
+                property: email
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
-            lazy: true
-            provider: users_in_memory
+
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+
+            logout:
+                path: app_logout
+
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -22,3 +39,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/api/hr, roles: ROLE_HR }
+        - { path: ^/api/employee, roles: ROLE_USER }
+
+# config/packages/security.yaml
