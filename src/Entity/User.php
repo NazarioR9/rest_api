@@ -1,19 +1,17 @@
 <?php
 
-
 namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
-
 
 /**
 * @ORM\Entity
 * @ORM\Table(name="user")
 */
-class User implements UserInterface{
-
-
+class User implements UserInterface
+{
 	/**
 	* @ORM\Column(type="integer")
 	* @ORM\Id
@@ -51,26 +49,24 @@ class User implements UserInterface{
 	*/
 	private $roles = [];
 
-
-
 	public function getTitle(): string
 	{
 		return $this->title;
 	}
 
-	public function setTitle(string $title){
-		if($this->title==null){
+	public function setTitle(string $title)
+    {
+		if($this->title == null){
 			$this->title = $title;
 		}
 	}
-
 
 	public function getId(): int
     {
         return $this->id;
     }
 
-    public function setFirstName(string $fn): void
+    public function setFirstName(string $fn)
     {
         $this->fname = $fn;
     }
@@ -85,7 +81,7 @@ class User implements UserInterface{
         return $this->lname;
     }
 
-    public function setLastName(string $ln): void
+    public function setLastName(string $ln)
     {
         $this->lname = $ln;
     }
@@ -95,7 +91,7 @@ class User implements UserInterface{
         return $this->email;
     }
 
-    public function setEmail(string $email): void
+    public function setEmail(string $email)
     {
         $this->email = $email;
     }
@@ -105,7 +101,7 @@ class User implements UserInterface{
         return $this->password;
     }
 
-    public function setPassword(string $password): void
+    public function setPassword(string $password)
     {
         $this->password = $password;
     }
@@ -121,7 +117,7 @@ class User implements UserInterface{
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): void
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
     }
@@ -131,16 +127,11 @@ class User implements UserInterface{
     }
 
 
-    public function eraseCredentials(): void
+    public function eraseCredentials()
     {
     }
 
     public function getSalt(){
     	return null;
     }
-
-
 }
-
-
-?>

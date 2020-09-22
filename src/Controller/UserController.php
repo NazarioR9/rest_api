@@ -1,19 +1,20 @@
 <?php
 
 namespace App\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 
-
-class UserController extends AbstractController{
-
+class UserController extends AbstractController
+{
 	/**
 	 *  @Route("/api/user", methods={"POST"}, name="register")
 	 */
-	public function new(Request $request){
+	public function new(Request $request): JsonResponse
+	{
 		$content = $request->getContent();
 
 		$user = new User();
@@ -23,7 +24,6 @@ class UserController extends AbstractController{
 		$user->setPassword($request->get('password'));
 		$user->setTitle($request->get('title'));
 
-
 		$manager = $this->getDoctrine()->getManager();
 		$manager->persist($user);
 		$manager->flush();
@@ -32,5 +32,3 @@ class UserController extends AbstractController{
 	}
 
 }
-
-?>

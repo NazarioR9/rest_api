@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -8,7 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 * @ORM\Entity
 * @ORM\Table(name="holiday")
 */
-class Holiday{
+class Holiday
+{
 	/**
 	* @ORM\Column(type="integer")
 	* @ORM\Id
@@ -39,20 +41,24 @@ class Holiday{
 	*/
 	private $approoved;
 
-	public function __construct(){
+	public function __construct()
+	{
 		$this->approoved = -1;
 	}
 
 
-	public function getId(){
+	public function getId()
+	{
 		return $this->id;
 	}
 
-	public function setId(int $id){
+	public function setId(int $id)
+	{
 		$this->id = $id;
 	}
 
-	public function setEId(int $eid){
+	public function setEId(int $eid)
+	{
 		$this->eid = $eid;
 	}
 
@@ -60,15 +66,18 @@ class Holiday{
 		return $this->eid;
 	}
 
-	public function setStartDate(\DateTime $sd){
+	public function setStartDate(\DateTime $sd)
+	{
 		$this->startDate = $sd;
 	}
 
-	public function getStartDate(){
+	public function getStartDate()
+	{
 		return $this->startDate;
 	}
 
-	public function setEndDate(\DateTime $ed){
+	public function setEndDate(\DateTime $ed)
+	{
 		$this->endDate = $ed;
 	}
 
@@ -76,16 +85,18 @@ class Holiday{
 		return $this->endDate;
 	}
 
-	public function setApprooved(int $appr){
+	public function setApprooved(int $appr)
+	{
 		$this->approoved = $appr;
 	}
 
-	public function getApprooved(){
+	public function getApprooved()
+	{
 		return $this->approoved;
 	}
 
-	
-	public function to_array(){
+	public function to_array(): array
+	{
 		return array(
 			'id' => $this->getID(),
 			'eid' => $this->getEId(),
@@ -96,5 +107,3 @@ class Holiday{
 	}
 
 }
-
-?>

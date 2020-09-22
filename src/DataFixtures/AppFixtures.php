@@ -1,22 +1,25 @@
 <?php
+
 namespace App\DataFixtures;
+
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Entity\User;
 use App\Entity\Holiday;
 
-class AppFixtures extends Fixture{
+class AppFixtures extends Fixture
+{
+    private $passwordEncoder;
 
-	private $passwordEncoder;
-
-	public function __construct(UserPasswordEncoderInterface $passwordEncoder)
-	{
-      $this->passwordEncoder = $passwordEncoder;
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
     }
 
-    public function load(ObjectManager $manager){
-    	$this->loadUsers($manager);
+    public function load(ObjectManager $manager)
+    {
+        $this->loadUsers($manager);
         $this->loadHolidays($manager);
     }
 
@@ -34,7 +37,6 @@ class AppFixtures extends Fixture{
             $manager->persist($user);
             $this->addReference($email, $user);
         }
-
         $manager->flush();
     }
 
@@ -72,7 +74,7 @@ class AppFixtures extends Fixture{
     private function getHolidayData(): array
     {
         return [
-            // $holidayData = [$eid, $startDate, $endDate, $approved];
+            // $holidayData = [$eid, $startDate, $endDate, $approved=-1];
             [3, \DateTime::createFromFormat("Y-m-d", date('Y-m-d')), \DateTime::createFromFormat("Y-m-d", date('Y-m-d')) ],
             [4, \DateTime::createFromFormat("Y-m-d", date('Y-m-d')), \DateTime::createFromFormat("Y-m-d", date('Y-m-d')) ],
             [1, \DateTime::createFromFormat("Y-m-d", date('Y-m-d')), \DateTime::createFromFormat("Y-m-d", date('Y-m-d')) ],
@@ -93,7 +95,4 @@ class AppFixtures extends Fixture{
             [2, \DateTime::createFromFormat("Y-m-d", date('Y-m-d')), \DateTime::createFromFormat("Y-m-d", date('Y-m-d')) ],
         ];
     }
-
 }
-
-?>
