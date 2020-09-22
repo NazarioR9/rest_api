@@ -16,7 +16,7 @@ class HolidayController extends AbstractController
 	 *  @Route("/api/hr", methods={"GET"}, name="show_all_holidays")
 	 *  @Route("/api/employee/{eid}", methods={"GET"}, name="show_holiday")
 	 */
-	public function show(int $eid=-1): JsonResponse
+	public function show(int $eid=-1): Response
 	{
 		$repo = $this->getDoctrine()->getRepository(Holiday::class);
 
@@ -41,7 +41,7 @@ class HolidayController extends AbstractController
 	/**
 	 *  @Route("/api/employee/{eid}/holiday", methods={"POST"}, name="add_holiday")
 	 */
-	public function add(int $eid, Request $request): JsonResponse
+	public function add(int $eid, Request $request): Response
 	{
 		$holiday = new Holiday();
 		$holiday->setStartDate(\DateTime::createFromFormat("Y-m-d"));
@@ -58,7 +58,7 @@ class HolidayController extends AbstractController
 	 * 	
 	 *  @Route("/api/employee/{eid}/holiday/{id}", methods={"DELETE"}, name="delete_holiday")
 	 */
-	public function delete(int $eid, int $id): JsonResponse
+	public function delete(int $eid, int $id): Response
 	{
 		$manager = $this->getDoctrine()->getManager();
 		$holiday = $manager->getRepository(Holiday::class)->findOneBy(["eid" => $eid, "id" => $id]);
@@ -73,7 +73,7 @@ class HolidayController extends AbstractController
 	 *  @IsGranted("ROLE_HR")
 	 *  @Route("/api/hr/{eid}/holiday/{id}", methods={"PUT"}, name="validate_holiday")
 	 */
-	public function validate(int $eid, int $id, Request $request):JsonResponse
+	public function validate(int $eid, int $id, Request $request):Response
 	{
 		$manager = $this->getDoctrine()->getManager();
 

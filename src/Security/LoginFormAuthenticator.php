@@ -46,7 +46,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
             && $request->isMethod('POST');
     }
 
-    public function getCredentials(Request $request): Request
+    public function getCredentials(Request $request): array
     {
         $credentials = [
             'email' => $request->request->get('email'),
@@ -101,7 +101,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return new RedirectResponse($this->urlGenerator->generate('app_homepage'));
     }
 
-    protected function getLoginUrl()
+    protected function getLoginUrl(): string
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }

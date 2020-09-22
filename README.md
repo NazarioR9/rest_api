@@ -36,7 +36,7 @@ Before diving into the endpoints definition, we should know that this API is bui
 | Definition                          |                     Parameters                   |                  Description             |
 |-------------------------------------|--------------------------------------------------|------------------------------------------|
 | GET / |  | Default debug homepage|
-| GET /api/home   |  | Empty homepage (**TODO**) |
+| GET /api/home   |  | Homepage. |
 | GET /api/hr   |  | HR homepage. Returns a JsonResponse filled with all the employees' leave requests |
 | GET /api/logout |  | Logout the user|
 | GET /api/login |  | Render the login form|
