@@ -19,8 +19,8 @@ Here is a quick walkthrough on how to build and run the project into the Docker 
 
 ```
 
-Now, you should be able to see the application running on [localhost](http:localhost/).
-
+Now, you should be able to see the application running on [localhost](http:localhost/).   
+To stop it, run ``` docker-compose stop ```   
 
 
 PS: You may need to add 'sudo' before each of the docker commands. Like "sudo docker-compose build".
